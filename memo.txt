@@ -1,3 +1,4 @@
+local:
 bundle exec rails new shelf
 cd shelf
 edit .gitignore
@@ -9,5 +10,27 @@ git remote add origin ...
 git remote -v
 git add .
 git commit -m "init: rails 5.0.2"
+# ruby 2.4.1
+
+openshift(nextgen):
+  base: rails-pgsql-persistent
+    ruby:2.3
+    postgresql:9.5
+  name: :theme
+  git: https://github.com/:user/:your_project.git
+  -> uri: http://(:theme)-(:project).44fs.preview.openshiftapps.com
+
+edit:
+Gemfile              # pg
+                     # ?listen in production?
+config/routes.rb     # /articles
+config/database.yml  # postgresql/sqlite3
+
+cp:
+migrate-database.sh
+
+bundle install --path vendor/bundle
+bundle exec rails s -b 0.0.0.0
+bundle pumactl start
 
 git push -u origin master
