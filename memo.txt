@@ -1,0 +1,13 @@
+bundle exec rails new shelf
+cd shelf
+edit .gitignore
+git init
+git config user.name ...
+git config user.email ...
+git config -l
+git remote add origin ...
+git remote -v
+git add .
+git commit -m "init: rails 5.0.2"
+
+git push -u origin master
